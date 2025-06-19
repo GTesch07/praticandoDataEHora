@@ -1,8 +1,6 @@
 package Principal;
 
-import java.time.LocalDate;
-import java.time.ZoneId;
-import java.time.ZonedDateTime;
+import java.time.*;
 import java.time.format.DateTimeFormatter;
 
 public class Principal {
@@ -34,7 +32,17 @@ public class Principal {
         ZonedDateTime dataCompraNy = dataConclusaoCompra.withZoneSameInstant(ZoneId.of("America/New_York"));
         System.out.println("Data conclusão compra NY: " + dataCompraNy);
 
+        LocalTime inicio = LocalTime.of(9, 0);
+        LocalTime fim = LocalTime.of(17,30);
 
+        Duration duracao = Duration.between(inicio, fim);
+
+        System.out.println("Duração do expediente: " + duracao.toHours()+ " horas e "+ duracao.toMinutesPart() + " minutos.");
+
+        LocalDate dataPagamento =LocalDate.parse("2025-10-30");
+        Period periodo = Period.between(dataCompra, dataPagamento);
+
+        System.out.println("Diferença em dias: " + periodo.getDays());
     }
 
 }
