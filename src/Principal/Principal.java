@@ -1,6 +1,8 @@
 package Principal;
 
 import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class Principal {
@@ -26,6 +28,13 @@ public class Principal {
         System.out.println("Data compra formatada: " + dataCompra.format((formato)));
         System.out.println("Data primeira parcela formatada: " + dataPrimeiraParcela.format(formato));
         System.out.println("Data segunda parcela formatada: " + dataSegundaParcela.format(formato));
+
+        ZonedDateTime dataConclusaoCompra = ZonedDateTime.now();
+        System.out.println("Data conclusão compra: " + dataConclusaoCompra);
+        ZonedDateTime dataCompraNy = dataConclusaoCompra.withZoneSameInstant(ZoneId.of("America/New_York"));
+        System.out.println("Data conclusão compra NY: " + dataCompraNy);
+
+
     }
 
 }
